@@ -1,0 +1,14 @@
+{
+    "name": "immich-tmaze",
+    "version": "1.129.0",
+    "description": "",
+    "author": "",
+    "private": true,
+    "license": "GNU Affero General Public License version 3",
+    "scripts": {
+      "start": "/bin/bash start.sh"
+    },
+    "volta": {
+      "node": "22.14.0"
+    }
+  }

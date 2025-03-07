@@ -33,7 +33,7 @@ function git_clone () {
     # REMOVE all the change one made to source repo, which is sth not supposed to happen
     git reset FETCH_HEAD --hard
     # In case one is not on the branch
-    git reset --hard "$3"
+    git reset --hard main
 }
 
 # -------------------
@@ -82,12 +82,12 @@ setup_folders
 # Build libjxl
 # -------------------
 
-change_locale () {
-    sed -i 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
-    locale-gen
-}
+# change_locale () {
+#     sed -i 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
+#     locale-gen
+# }
 
-change_locale
+# change_locale
 
 # -------------------
 # Build libjxl

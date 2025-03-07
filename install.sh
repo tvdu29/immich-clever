@@ -2,6 +2,8 @@
 
 set -xeuo pipefail # Make people's life easier
 
+echo $HOME
+
 # -------------------
 # Create env file if it does not exists
 # -------------------
@@ -28,15 +30,15 @@ create_install_env_file
 # Load environment variables from env file
 # -------------------
 
-load_environment_variables () {
-    # Read the .env file into variables
-    cd $SCRIPT_DIR
-    set -a
-    . ./.env
-    set +a
-}
+# load_environment_variables () {
+#     # Read the .env file into variables
+#     cd $SCRIPT_DIR
+#     set -a
+#     . ./.env
+#     set +a
+# }
 
-load_environment_variables
+# load_environment_variables
 
 # -------------------
 # Review environment variables
@@ -363,9 +365,9 @@ create_custom_start_script () {
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-set -a
-. $INSTALL_DIR/runtime.env
-set +a
+# set -a
+# . $INSTALL_DIR/runtime.env
+# set +a
 
 cd $INSTALL_DIR_app
 exec node $INSTALL_DIR_app/dist/main "\$@"
@@ -375,9 +377,9 @@ EOF
     cat <<EOF > $INSTALL_DIR_ml/start.sh
 #!/bin/bash
 
-set -a
-. $INSTALL_DIR/runtime.env
-set +a
+# set -a
+# . $INSTALL_DIR/runtime.env
+# set +a
 
 cd $INSTALL_DIR_ml
 . venv/bin/activate
