@@ -21,10 +21,10 @@ SCRIPT_DIR=$PWD
 # Create log directory
 # -------------------
 
-create_log_directory () {
-    mkdir -p /var/log/immich
-}
+# create_log_directory () {
+#     mkdir -p /var/log/immich
+# }
 
-create_log_directory
+# create_log_directory
 
 echo "Done!"
