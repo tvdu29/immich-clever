@@ -7,4 +7,5 @@ mkdir /immich-src
 ./install.sh
 ./post-install.sh
 
-systemctl daemon-reload && systemctl enable immich-ml.service immich-web.service
+/immich/app/machine-learning/start.sh &
+/immich/app/start.sh
