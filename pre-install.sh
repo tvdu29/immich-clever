@@ -153,18 +153,18 @@ build_libjxl () {
     rm -rf $SOURCE/third_party/
 }
 
-# Experimental build, currently broken
-while getopts "e" opt; do
-    case $opt in
-        e)
-        build_libjxl
-        ;;
-        \?)
-        echo "Invalid option: -$OPTARG" >&2
-        exit 1
-        ;;
-    esac
-done
+# # Experimental build, currently broken
+# while getopts "e" opt; do
+#     case $opt in
+#         e)
+#         build_libjxl
+#         ;;
+#         \?)
+#         echo "Invalid option: -$OPTARG" >&2
+#         exit 1
+#         ;;
+#     esac
+# done
 
 # -------------------
 # Build libheif
@@ -205,7 +205,7 @@ build_libheif () {
     remove_build_folder $SOURCE
 }
 
-build_libheif
+# build_libheif
 
 # -------------------
 # Build libraw
@@ -235,9 +235,9 @@ build_libraw () {
     make clean
 }
 
-build_libraw
-# DO NOT ASK WHY, RUNNING ONE TIME NEVER WORK FOR ME
-build_libraw
+# build_libraw
+# # DO NOT ASK WHY, RUNNING ONE TIME NEVER WORK FOR ME
+# build_libraw
 
 # -------------------
 # Build image magick
@@ -266,7 +266,7 @@ build_image_magick () {
     make clean
 }
 
-build_image_magick
+# build_image_magick
 
 # -------------------
 # Build libvips
@@ -297,7 +297,7 @@ build_libvips () {
     remove_build_folder $SOURCE
 }
 
-build_libvips
+# build_libvips
 
 # -------------------
 # Remove unused packages

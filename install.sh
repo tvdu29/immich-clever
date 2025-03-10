@@ -152,6 +152,7 @@ create_folders
 # -------------------
 
 clone_the_repo () {
+    echo $INSTALL_DIR_src
     if [ ! -d "$INSTALL_DIR_src" ]; then
         git clone "$REPO_URL" "$INSTALL_DIR_src" --single-branch
     else
@@ -177,10 +178,10 @@ clone_the_repo
 install_immich_web_server () {
     cd $INSTALL_DIR_src
 
-    # Set mirror for npm
-    if [ ! -z "${PROXY_NPM}" ]; then
-        npm config set registry=$PROXY_NPM
-    fi
+    # # Set mirror for npm
+    # if [ ! -z "${PROXY_NPM}" ]; then
+    #     npm config set registry=$PROXY_NPM
+    # fi
 
     cd server
     npm ci
@@ -198,10 +199,10 @@ install_immich_web_server () {
     npm run build
     cd ..
 
-    # Unset mirror for npm
-    if [ ! -z "${PROXY_NPM}" ]; then
-        npm config delete registry
-    fi
+    # # Unset mirror for npm
+    # if [ ! -z "${PROXY_NPM}" ]; then
+    #     npm config delete registry
+    # fi
 
     cp -a server/node_modules server/dist server/bin $INSTALL_DIR_app/
     cp -a web/build $INSTALL_DIR_app/www
@@ -236,11 +237,11 @@ install_immich_machine_learning () {
     # Initiate subshell to setup venv
     . $INSTALL_DIR_ml/venv/bin/activate
 
-    # Use pypi if proxy does not present
-    if [ -z "${PROXY_POETRY}" ]; then
-        PROXY_POETRY=https://pypi.org/simple/
-    fi
-    export POETRY_PYPI_MIRROR_URL=$PROXY_POETRY
+    # # Use pypi if proxy does not present
+    # if [ -z "${PROXY_POETRY}" ]; then
+         PROXY_POETRY=https://pypi.org/simple/
+    # fi
+    # export POETRY_PYPI_MIRROR_URL=$PROXY_POETRY
     pip3 install poetry -i $PROXY_POETRY
 
     # Deal with python 3.12
@@ -260,8 +261,8 @@ install_immich_machine_learning () {
         poetry install --no-root --with dev --with cpu
     fi
 
-    # Work around for bad poetry config
-    pip install "numpy<2" -i $PROXY_POETRY
+    # # Work around for bad poetry config
+    # pip install "numpy<2" -i $PROXY_POETRY
     )
     
     # Copy results
@@ -295,10 +296,10 @@ replace_usr_src
 install_sharp_and_cli () {
     cd $INSTALL_DIR_app
 
-    # Set mirror for npm
-    if [ ! -z "${PROXY_NPM}" ]; then
-        npm config set registry=$PROXY_NPM
-    fi
+    # # Set mirror for npm
+    # if [ ! -z "${PROXY_NPM}" ]; then
+    #     npm config set registry=$PROXY_NPM
+    # fi
 
     npm install --build-from-source sharp
 
@@ -308,10 +309,10 @@ install_sharp_and_cli () {
 
     npm i -g @immich/cli
 
-    # Unset mirror for npm
-    if [ ! -z "${PROXY_NPM}" ]; then
-        npm config delete registry
-    fi
+    # # Unset mirror for npm
+    # if [ ! -z "${PROXY_NPM}" ]; then
+    #     npm config delete registry
+    # fi
 }
 
 install_sharp_and_cli
