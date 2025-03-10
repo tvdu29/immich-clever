@@ -54,10 +54,10 @@ review_install_information () {
     echo $UPLOAD_DIR
     # Cuda or CPU
     echo $isCUDA
-    # npm proxy
-    echo $PROXY_NPM
-    # poetry proxy
-    echo $PROXY_POETRY
+    # # npm proxy
+    # echo $PROXY_NPM
+    # # poetry proxy
+    # echo $PROXY_POETRY
 }
 
 review_install_information
@@ -421,6 +421,8 @@ create_runtime_env_file () {
 }
 
 create_runtime_env_file
+
+ls -al .
 
 echo "----------------------------------------------------------------"
 echo "Done. Please install the systemd services to start using Immich."

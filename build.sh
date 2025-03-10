@@ -1,7 +1,7 @@
 #!/bin/bash
 
-mkdir /immich
-mkdir /immich-src
+mkdir ./immich
+mkdir ./immich-src
 
 ./pre-install.sh
 ./install.sh
